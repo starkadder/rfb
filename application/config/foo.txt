@@ -1,0 +1,25 @@
+ BBC World Service                | http://wsdownload.bbc.co.uk/worldservice/meta/live/shoutcast/mp3/eieuk.pls 
+ Swiss Radio Jazz/Swing           | http://relay.publicdomainproject.org/jazz_swing.mp3                        
+ Radio Swiss Classic              | http://www.radiosuisseclassique.ch/live/mp3.m3u                            
+ MPR Classical                    | http://minnesota.publicradio.org/tools/play/streams/classical.pls          
+ KCEA Big Band                    | http://streaming.rubinbroadcasting.com/kcea                                
+ NRK Alltid Klassik               | http://lyd.nrk.no/nrk_radio_klassisk_mp3_h                                 
+ RTBF Musiq3                      | http://streaming.rtbf.be:8000/mus3128xrtbf                                 
+ All Brass Radio                  | http://cloudrad.io/allbrassradio/listen.m3u                                
+ France Musique                   | http://www.listenlive.eu/fr_francemusique128.m3u                           
+ KNKX - NPR                       | https://live.wostreaming.net/direct/kplu-newsjazzaac-64                    
+ Radio Swiss Jazz                 | http://www.radioswissjazz.ch/live/mp3.m3u                                  
+ Rete Toscana Classica            | mms://streaming.intoscana.it/wmtencoder/rtc.wma                            
+ Venice Classic Radio             | http://www.radioonda.it/live2/128.pls                                      
+ Radio 4 Netherlands              | http://icecast.omroep.nl/radio4-bb-mp3                                     
+ MPR Holiday Classics             | http://common.publicradio.org/streams/holiday.mp3.m3u                      
+ MPR Choral Stream                | http://choralstream1.publicradio.org/choral.m3u                            
+ KNKX - Jazz 24                   | https://live.wostreaming.net/direct/kplu-jazz24aac-64                      
+ BBC Radio 4                      | http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p                 
+ BBC Radio 3                      | http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p                   
+ Sing for Joy                     | http://edna/sfj.php                                                        
+ KUOW                             | http://www2.kuow.org/stream/kuowhb.m3u                                     
+ Jazz Manouche                    | http://broadcast.infomaniak.ch/jazz-wr02-128.mp3.m3u                       
+ Radio Mariachi                   | http://167.114.64.181:9427/stream                                          
+ Razorback Sports                 | http://tunein.streamguys1.com/arkansas                                     
+

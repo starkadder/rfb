@@ -1,0 +1,42 @@
+<?php
+  //
+  // Top menu items
+  //
+  
+  
+  //
+  // Admin menu
+  //
+  echo "<ul id='nav'>\n";
+  echo "  <li class='first'>Admin\n";
+  echo "    <div class='clear'></div>\n";
+  echo "     <ul>\n";
+  echo "       <li><a href='/rfb/stations'>Manage Stations</a></li>\n";
+  echo "       <li><a href='/rfb/bbc'>BBC Shows</a></li>\n";
+//  echo "       <li><a href='" . site_url("domains/manage") . "'>Manage Domains</a></li>\n";
+//  echo "       <li><a href='" . site_url("admin/config") . "'>Configuration</a></li>\n";
+//  echo "       <li><a href='" . site_url("admin/logout")  . "'>Log Out</a></li>\n";
+  echo "       <div class='clear'></div>\n";
+  echo "     </ul>\n";
+  echo "    <div class='clear'></div>\n";
+  echo "  </li>\n";
+  echo "</ul>\n";
+
+  //
+  // Domains
+  //
+//  $my_domains = $this->Domain->get_user_domains($this->session->userdata('user_id'));  
+//  foreach ($my_domains->result() as $d) {
+//    echo "  <li>" . $d->domain . "\n";
+//    echo "    <div class='clear'></div>\n";
+//    echo "     <ul>\n";
+//    echo "       <li><a href='" . site_url("layout/available/" . $d->domain) . "' >File Layouts</a>\n";
+//    echo "       <li><a href='" . site_url("jobs/upload/" . $d->domain) . "' >Create New Job</a>\n";
+//    echo "       <li><a href='" . site_url("jobs/status/" . $d->domain) . "' >List Jobs</a>\n";
+//    echo "     </ul>\n";
+//    echo "    <div class='clear'></div>\n";
+//    echo "  </li>\n";
+//  }
+
+
+?>

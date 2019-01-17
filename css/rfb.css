@@ -1,0 +1,205 @@
+
+/* color schemes */
+
+/**** DARK BLUE ****/
+
+body, div.menu, div.content, table.noborder th {
+    color: #0C2C52;
+}
+
+table.noborder th.sortcol, #nav ul {
+  background-color: #0C2C52;
+}
+
+#nav li {
+  border-left-color: #0C2C52;
+}
+
+/**** MEDIUM BLUE ****/
+
+div.menu, table.noborder th {
+   background-color: #5E9DC8;
+}
+
+table.noborder th.sortcol {
+  color: #5E9DC8;
+}
+
+#nav li.hover {
+  color: #DCF0F7;
+  background-color: #0C2C52;
+}
+
+
+/**** PALE BLUE ****/
+
+#nav ul a {
+  color: #DCF0F7;
+}
+
+#nav li {
+    border-top-color: #DCF0F7;
+}
+
+table.noborder tr.highlight {
+  background-color: #DCF0F7;
+}
+
+/**** OTHER COLORS ****/
+
+div.content {
+   background-color: #ffffff;  /* white */
+}
+
+h2.errors {
+   color: red;  
+}
+
+/* Page CSS */
+
+form {
+   margin-bottom: 0em;
+}
+
+div.menu {
+   width: 100%;
+   float:left;
+}
+
+div.content {
+   width: 100%;
+   float:left;
+}
+
+
+table.noborder {
+   border: 0px none;
+   border-collapse:collapse;
+}
+
+table.noborder th {
+  z-index:400;
+}
+
+table.noborder th.sortcol {
+  cursor: s-resize;	
+}
+
+table.noborder tr.highlight {
+  cursor: pointer;	
+}
+
+
+
+/* Below is css for the menu */
+
+.clear {clear:both}
+/* remove the list style */
+#nav {
+    margin:0;
+    padding:0;
+    list-style:none;
+    text-transform:uppercase;
+}  
+     
+/* make the LI display inline */
+/* it's position relative so that position absolute */
+/* can be used in submenu */
+#nav li {
+    float:left;
+    display:block;
+    position:relative;
+    z-index:500;
+    padding: 0px 20px;
+    font-weight:bold;
+    border-left-width: 1px;
+    border-left-style: solid;
+}
+
+#nav li.first {
+    border-left: none;   
+}         
+
+/* submenu, it's hidden by default */
+#nav ul {
+    position:absolute;
+    left:0;
+    display:none;
+    padding:0;
+    list-style:none;
+}
+     
+/* fix ie6 small issue */
+/* we should always avoid using hack like this */
+/* should put it into separate file : ) */
+*html #nav ul {
+   margin:0 0 0 -2px;
+}
+
+
+#nav ul li {
+    float:left;
+    border-left: none;
+    border-top-width: 1px;
+    border-top-style: solid;
+    width:130px;
+}
+
+/* display block will make the link fill the whole area of LI */
+#nav ul a {
+    display:block; 
+    height:15px;
+    padding: 8px 5px;
+    text-decoration: none; 
+}
+ 
+
+
+span.user {
+   display:block;
+   padding: 0px 10px 0 5px;
+   white-space:nowrap;
+   float:right;
+   font-weight:bold;
+}
+
+
+
+body {
+    font:12px/18px 'Trebuchet MS', Arial, Helvetica, Sans-serif;
+}
+
+
+/*  for mobile */
+@media only screen and (max-device-width: 480px) {
+    body {
+	font:48px/60px 'Trebuchet MS', Arial, Helvetica, Sans-serif;
+    }
+    
+    select {
+	font:48px/60px 'Trebuchet MS', Arial, Helvetica, Sans-serif;
+    }
+
+    input {
+	font:48px/60px 'Trebuchet MS', Arial, Helvetica, Sans-serif;
+    }
+
+    #nav ul li {
+	width:300px;
+    }
+    
+    /* display block will make the link fill the whole area of LI */
+    #nav ul a {
+	height:100px;
+	padding: 30px 20px;
+    }
+
+    #playlist {
+	font:28px/36px 'Trebuchet MS', Arial, Helvetica, Sans-serif;
+    }
+
+   
+}
+
+
+

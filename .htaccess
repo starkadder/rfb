@@ -1,0 +1,4 @@
+RewriteEngine on
+RewriteCond $1 !^(index\.php|images|robots\.txt|user_guide|images|javascript|js|css)
+RewriteRule ^(.*)$ /rfb/index.php/$1 [L]
+
