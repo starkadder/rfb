@@ -1,0 +1,12 @@
+Adjust volume output:
+
+osascript -e 'output volume of (get volume settings)'
+osascript -e 'get volume settings'
+osascript -e 'set volume output volume 14'
+osascript -e 'get volume settings'
+
+
+
+for calling ajax periodically:
+
+https://stackoverflow.com/questions/5052543/how-to-fire-ajax-request-periodically

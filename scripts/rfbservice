@@ -1,0 +1,56 @@
+#!/usr/bin/perl
+{
+    package MyWebServer;
+    
+    use HTTP::Server::Simple::CGI;
+    use base qw(HTTP::Server::Simple::CGI);
+
+#    open (LOG,">/Users/tschweiger/src/rfb/rfb.log");
+#    print LOG "startup " . `date` . "\n";
+    
+    my %dispatch = (
+	'/hello' => \&resp_hello,
+	# ...
+	);
+    
+    sub handle_request {
+	my $self = shift;
+	my $cgi  = shift;
+	
+	my $path = $cgi->path_info();
+	my $type = $cgi->param('type');
+	my $station = $cgi->param('station');
+	my $cmd = "";
+
+	if ($path =~ /play/) {
+	     $station = $cgi->param('station');
+	    $cmd = "/Users/tschweiger/src/rfb/rfbplayer $type $station";
+	     `$cmd`;
+	}
+	if ($path =~ /stop/) {
+	    # kill the player
+	    $station = 0;
+	    $cmd = "/Users/tschweiger/src/rfb/rfbplayer s $station";
+	    `$cmd`;
+	}
+
+	print $cgi->header, $cgi->start_html("dude"), $cgi->p("$path $type $station"), $cgi->end_html;
+	return;
+    }
+    
+    sub resp_hello {
+	my $cgi  = shift;   # CGI.pm object
+	return if !ref $cgi;
+	
+	my $who = $cgi->param('name');
+	
+	print $cgi->header,
+	$cgi->start_html("Hello"),
+	$cgi->h1("Hello $who!"),
+	$cgi->end_html;
+    }
+    
+} 
+
+# start the server on port 8888
+MyWebServer->new(8888)->run();

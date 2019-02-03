@@ -1,0 +1,150 @@
+#!/usr/bin/perl
+#########################################################################
+#
+# script: playlink
+# author: Tom Schweiger tom@starkadder.net
+# date:   January 20, 2007
+# args:   url or file
+#
+# This script starts mpv playing a url or file
+# It fetchs and parses the url if it is a podcast
+# It checks if the file is a playlist (.pl, .mu3, .ram, ...) 
+#
+#########################################################################
+use strict;
+use DBD::mysql;
+
+my ($type, $station) = @ARGV;
+
+my $database = "rfb";
+my $host = "localhost";
+my $user = "root";
+my $password = "radio1";
+
+my $listfile = "/tmp/playlist.txt ";
+my $playfile = "/tmp/playing.txt ";
+
+
+#open(LOG,">/Users/tschweiger/src/rfb/player.log");
+#$| = 1;
+
+#
+# stop any running player and empty database;
+#
+`pkill mpv`;
+
+
+my $dbh = DBI->connect("DBI:mysql:database=$database;host=$host", $user, $password, {'RaiseError' => 1});
+
+my $sql = "DELETE FROM playing where station_id > 0";
+$dbh->do($sql);
+
+unless ( $station ) {
+    $dbh->disconnect();
+    exit;
+} 
+
+
+my $data;
+
+
+if ($type eq "l") {
+    $data = {"url" => $station, "options" => "", "id" => 99, "name" => $station}; 
+}
+else {
+    my $sql;
+    if ( $type eq "s") {
+	$sql = "SELECT * FROM stations where id = $station";
+    }
+    if ( $type eq "a") {
+	$sql = "SELECT * FROM albums where id = $station";
+    }
+   
+    my $sth = $dbh->prepare($sql);
+    $sth->execute();
+    if ($sth->rows() == 0) {
+	$sth->finish();
+	$dbh->disconnect();
+	exit;
+    }
+    
+    $data = $sth->fetchrow_hashref();
+    $sth->finish();
+}
+
+
+my $xmlfile = "/tmp/podcast.xml";
+my $playlist = "/tmp/podcast.m3u";
+my $link = $data->{"url"};
+
+
+if ( $link =~ /[Pp]odcast|PODCAST|feed|rss/ ) {
+
+    use XML::Simple;
+    open (PLAYLIST,"> $playlist");
+    `wget $link -O $xmlfile  2>&1 > /dev/null`;
+    `cat $xmlfile | gsed 's/ isPermaLink=\"false\"//g' > $xmlfile.tmp; mv $xmlfile.tmp $xmlfile`;
+    my $xml = XML::Simple->new();
+    my $doc = $xml->XMLin($xmlfile);
+    my $channel = $doc->{channel};
+    foreach my $item (@{$channel->{item}}) {
+	print PLAYLIST "$item->{guid}\n";
+    } 
+    close (PLAYLIST);
+    $link = $playlist;
+}
+
+
+if ( $link =~ /smil$/ ) {
+    `wget $link -O $xmlfile  2>&1 > /dev/null`;
+    open(FILE,$xmlfile);
+    open (PLAYLIST,"> $playlist");
+    while (my $line = <FILE>) {
+	chomp $line;
+	my @data = split(" ",$line);
+	foreach my $item (@data) {
+	    if ($item =~ m/(rtsp.+\.ra)/) {
+		print PLAYLIST "$1\n";
+	    }
+	}
+    }
+    close(FILE);
+    close(PLAYLIST);
+    $link = $playlist;
+}
+
+unless  (-e "/tmp/rfb.fifo") {
+    `mkfifo /tmp/rfb.fifo `;
+} 
+my $options = "--quiet --no-video ". $data->{"options"};
+my $playlist = "";
+if ( $link =~ /\.pl$|\.pls$|\.m3u$|\.ram$|\.asx$|\.rpm$|\.rm$/ ) {
+    $playlist = " -playlist";
+}
+
+my $sql = "DELETE FROM playing where station_id > 0";
+$dbh->do($sql);
+$sql = sprintf("INSERT INTO playing (station_id, type, name, url) VALUES (%d,'%s', '%s', '%s')",
+		  $data->{"id"}, $type, $data->{"name"}, $data->{"url"});
+$dbh->do($sql);
+$dbh->disconnect();
+
+#
+# start playing
+# 
+open(PLAY,">$playfile");
+print PLAY sprintf("%s\n%s\n%s", $data->{"id"}, $data->{"name"}, $data->{"url"});
+close(PLAY);
+
+`/usr/local/bin/mpv $options $link  </dev/null |  grep --line-buffered -i title > $listfile  &`;
+print "/usr/local/bin/mpv $options $link  </dev/null | grep --line-buffered icy > $listfile  \n";
+
+exit;
+
+
+
+
+
+
+
+
