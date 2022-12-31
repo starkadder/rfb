@@ -170,6 +170,11 @@ body {
 }
 
 
+select {
+  max-width:90%;
+}
+
+
 /*  for mobile */
 @media only screen and (max-device-width: 480px) {
     body {
@@ -177,7 +182,7 @@ body {
     }
     
     select {
-	font:48px/60px 'Trebuchet MS', Arial, Helvetica, Sans-serif;
+      font:48px/60px 'Trebuchet MS', Arial, Helvetica, Sans-serif;
     }
 
     input {
@@ -197,9 +202,70 @@ body {
     #playlist {
 	font:28px/36px 'Trebuchet MS', Arial, Helvetica, Sans-serif;
     }
-
-   
+    
 }
 
+
+.volume {
+  display: none;
+}
+
+
+
+
+
+.slider {
+  -webkit-appearance: none;
+  width: 75%;
+  height: 25px;
+  border-radius: 5px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 1.0;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #0C2C52;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #0C2C52;
+  cursor: pointer;
+}
+
+
+@media only screen and (min-width: 1000px) {
+
+.slider {
+  height: 15px;
+}
+
+.slider::-webkit-slider-thumb {
+  width: 25px;
+  height: 25px;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+}
+
+    
+}
 
 

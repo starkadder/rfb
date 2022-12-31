@@ -4,10 +4,10 @@ $this->load->view("global/header");
 <br />
 <br />
 <br />
+<center>
 <form action="/rfb/albums/<?php echo $action; ?>" method='post'>
 <input type="hidden" name="return" value="1"/>
 <input type="hidden" name="album" value="<?php echo $album; ?>"/>
-<center>
 
 <table cellpadding="10">
   <tr>
@@ -40,8 +40,8 @@ $this->load->view("global/header");
 <br />
 <h2><?php echo $error; ?></h2>
 
-</center>
 </form>
+</center>
 
 <?php
 $this->load->view("global/footer");

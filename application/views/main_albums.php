@@ -7,7 +7,7 @@ $this->load->view("global/header",array("title" => $title));
 <center>
 
 <form action="/rfb/albums" method="post">
-<select name="album">
+<select name="album" >
 
 <?php
 foreach ($albums->result() as $album) {

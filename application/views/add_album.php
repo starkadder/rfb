@@ -5,7 +5,7 @@ $this->load->view("global/header");
 <br />
 <br />
 <form action="/rfb/albums/add" method='post'>
-<input type="hidden" name="return" value="1"/>
+<input type="hidden" name="return" value="1" />
 <center>
 
 <table cellpadding="10">
@@ -38,8 +38,8 @@ $this->load->view("global/header");
 <input type="submit" value="Submit"/>
 <br />
 <h2><?php echo $error; ?></h2>
-
 </center>
+
 </form>
 
 <?php

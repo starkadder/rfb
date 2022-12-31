@@ -1,11 +1,10 @@
 <html>
 <head>
-<title>My God, you've gotten fat!</title>
-<!--
-<title>Radio Free Edna</title>
--->
+<title>Radio Free Blossom</title>
 <link rel="stylesheet" type="text/css" href="/rfb/css/rfb.css" />
+<!--
 <link rel='shortcut icon' href='/rfb/images/edna_icon.png' type='image/png' />
+-->
 <script type="text/javascript" language="JavaScript" src="/rfb/js/jquery.js"></script>
 <script type="text/javascript" language="JavaScript" src="/rfb/js/jquery.hoverIntent.minified.js"></script>
 <script type="text/javascript" language="JavaScript" src="/rfb/js/tablesorter.js"></script>
@@ -34,7 +33,7 @@ $(document).ready(function() {
 <body>
 <div class='menu' >
 <center>
- <h1>Radio Free Edna</h1>
+ <h1>Radio Free Blossom</h1>
   <h2><?php  // echo $title; ?></h2>
 </center>
 </div>

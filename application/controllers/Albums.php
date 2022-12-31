@@ -62,7 +62,7 @@ class Albums extends CI_Controller {
     }    
     
     
-    $this->load->view('main_albums',$data);
+    $this->load->view('main_albums', $data);
     return;
   }
   
@@ -107,8 +107,11 @@ class Albums extends CI_Controller {
       $this->load->view("edit_album",$data);
       return;
     }
+
+
     $this->load->helper("url");
-    redirect("albums",$data);
+    redirect("/rfb/albums","refresh");
+
     return;
   }
 
@@ -191,7 +194,7 @@ class Albums extends CI_Controller {
     $edit = $this->Albums_model->delete($album);
 
     $this->load->helper("url");
-    redirect("",$data);
+    redirect("/rfb/albums","refresh");
     return;
   }
 

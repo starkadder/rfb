@@ -17,7 +17,7 @@
 | KNKX - Jazz 24                   | https://live.wostreaming.net/direct/kplu-jazz24aac-64                      |
 | BBC Radio 4                      | http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio4fm_mf_p                 |
 | BBC Radio 3                      | http://bbcmedia.ic.llnwd.net/stream/bbcmedia_radio3_mf_p                   |
-| Sing for Joy                     | http://edna/sfj.php                                                        |
+| Sing for Joy                     | http://blossom/sfj.php                                                        |
 | KUOW                             | http://www2.kuow.org/stream/kuowhb.m3u                                     |
 | Jazz Manouche                    | http://broadcast.infomaniak.ch/jazz-wr02-128.mp3.m3u                       |
 | Radio Mariachi                   | http://167.114.64.181:9427/stream                                          |
